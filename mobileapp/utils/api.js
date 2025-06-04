@@ -3,21 +3,36 @@ import { Platform } from 'react-native';
 
 // Local backend URL with your IP
 // API_URL = "http://localhost:5000/api";
-API_URL = "https://jobconnector-backend.onrender.com/api";
+// API_URL = "https://jobconnector-backend.onrender.com/api";
 // const BASE_URL = Platform.OS === 'web' ? 'http://localhost:5000/api' : 'http://192.168.31.124:5000/api';
-const BASE_URL = Platform.OS === 'web' ? 'https://jobconnector-backend.onrender.com/api' : 'https://jobconnector-backend.onrender.com/api';
+// const BASE_URL = Platform.OS === 'web' ? 'https://jobconnector-backend.onrender.com/api' : 'https://jobconnector-backend.onrender.com/api';
 
 // Default axios instance for JSON requests
-const api = axios.create({
-  baseURL: BASE_URL,
-  headers: { 'Content-Type': 'application/json' },
-});
+// const api = axios.create({
+//   baseURL: BASE_URL,
+//   headers: { 'Content-Type': 'application/json' },
+// });
 
 // Commented out Render URL for later use
 // const api = axios.create({
 //   baseURL: 'https://jobconnector-backend.onrender.com/api',
 //   headers: { 'Content-Type': 'application/json' },
 // });
+
+
+// Set your EC2 IP and port here
+const BASE_URL =
+  Platform.OS === 'web'
+    ? 'http://100.26.21.0:3003/api'
+    : 'http://100.26.21.0:3003/api';
+
+// Default axios instance
+const api = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
 // Authentication
 export const requestOTP = (data) => api.post('/auth/request-otp', data);
