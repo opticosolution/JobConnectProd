@@ -23,8 +23,8 @@ import { Platform } from 'react-native';
 // Set your EC2 IP and port here
 const BASE_URL =
   Platform.OS === 'web'
-    ? 'http://100.26.21.0:3003/api'
-    : 'http://100.26.21.0:3003/api';
+    ? 'http://44.208.186.26:3003/api'
+    : 'http://44.208.186.26:3003/api';
 
 // Default axios instance
 const api = axios.create({
